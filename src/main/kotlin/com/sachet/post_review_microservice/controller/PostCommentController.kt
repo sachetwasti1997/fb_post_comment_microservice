@@ -13,11 +13,11 @@ class PostCommentController(
     val postCommentService: PostService
 ){
 
-    @GetMapping("/comments/{postId}/{page}/{size}")
+    @GetMapping("/comments/{postId}")
     fun getCommentsOnAPost(
         @PathVariable postId: String,
-        @PathVariable(value = "page") page: Long,
-        @PathVariable(value = "size") size: Long
+        @RequestParam(value = "page") page: Long,
+        @RequestParam(value = "size") size: Long
     ): Mono<ResponseEntity<List<PostComment>>> {
         return postCommentService
             .getCommentsOnPost(postId, page, size)

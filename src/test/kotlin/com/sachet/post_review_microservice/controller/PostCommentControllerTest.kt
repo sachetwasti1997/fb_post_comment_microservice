@@ -85,7 +85,9 @@ constructor(
             .get()
             .uri{
                 it
-                    .path("$postcomment_base_url/comments/$id/$page/$size")
+                    .path("$postcomment_base_url/comments/$id")
+                    .queryParam("page", page)
+                    .queryParam("size", size)
                     .build()
             }
             .exchange()
@@ -105,7 +107,9 @@ constructor(
             .get()
             .uri{
                 it
-                    .path("$postcomment_base_url/comments/$id/$page/$size")
+                    .path("$postcomment_base_url/comments/$id")
+                    .queryParam("page", page)
+                    .queryParam("size", size)
                     .build()
             }
             .exchange()
